@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Modak">
+<style>
+h1 {
+ font-family: 'Anton', serif;
+        font-size: 45px;
+	color : purple;
+	font-size: 60px;
+}
+h2 {
+ font-family: 'Roboto', serif;
+        font-size: 20px;
+	color : purple;
+	font-size: 20px;
+}
+h3 {
+ font-family: 'Roboto', serif;
+        font-size: 20px;
+	color : purple;
+	font-size: 20px;
+}
+h4 {
+ font-family: 'Roboto', serif;
+        font-size: 20px;
+	color : purple;
+	font-size: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Dream Vacation</h1>
+<h2>My dream vacation consists of 6 destinations:</h2>
+<h3>Las Vegas, Nevada. Miami, Florida. Somewhere in Greenland ("top of the world").</h3>
+<h4>Paris, France. The Burj Khalifa, Dubai. Pyongyang, North Korea.</h4>
+
+<div id="googleMap" style="width:985px;height:800px;"></div>
+
+<script>
+function myMap() {
+var mapCenter = new google.maps.LatLng(48.857637, 2.339693);
+var mapProp= {
+    center:mapCenter,
+    zoom:2,
+styles:    [
+  {
+    "featureType": "water",
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "color": "#ff4bef"
+      },
+      {
+        "weight": 8
+      }
+    ]
+  }
+]
+};
+var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var vegas = new google.maps.LatLng(36.168813, -115.140346);
+var miami = new google.maps.LatLng(25.761048, -80.191036);
+var topofworld = new google.maps.LatLng(83.610731, -34.036334);
+var paris = new google.maps.LatLng(48.857637, 2.339693);
+var miakhalifa = new google.maps.LatLng(25.197416, 55.274391);
+var northKorea = new google.maps.LatLng(39.028648, 125.730468);
+
+var vegasMarker = new google.maps.Marker({position: vegas, icon:'fiji_water.png'});
+vegasMarker.setMap(map);
+var miamiMarker = new google.maps.Marker({position: miami, icon:'fiji_water.png'});
+miamiMarker.setMap(map);
+var topofworldMarker = new google.maps.Marker({position: topofworld, icon:'guccimane.png'});
+topofworldMarker.setMap(map);
+var parisMarker = new google.maps.Marker({position: paris, icon:'fiji_water.png'});
+parisMarker.setMap(map);
+var miakhalifaMarker = new google.maps.Marker({position: miakhalifa, icon:'fiji_water.png'});
+miakhalifaMarker.setMap(map);
+var northKoreaMarker = new google.maps.Marker({position: northKorea, icon:'fiji_water.png'});
+northKoreaMarker.setMap(map);
+
+//Example of a polyline
+var myTrip = [vegas, miami, topofworld, paris, miakhalifa, northKorea];
+var flightPath = new google.maps.Polyline({
+  path:myTrip,
+  strokeColor:"purple",
+  strokeOpacity:1.2,
+  strokeWeight:2
+});
+//don't forget to add it to the map
+flightPath.setMap(map);
+
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_Is2sp0dIa5oQXYp1FlDJWNgcmSm8Zgw&callback=myMap"></script>
+
+</body>
+</html>
